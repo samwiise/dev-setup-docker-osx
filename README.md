@@ -1,8 +1,7 @@
 
 PyCharm native OSX application integerated with python virtual environment in linux using docker.
 
-Setup Docker Based Development Environment for Mac OSX
-==================================================================
+### Setup Docker Based Development Environment for Mac OSX
 
 Setup Development Shell and Python Environment:
 
@@ -40,7 +39,9 @@ Setup Development Shell and Python Environment:
 
  
 
-To integrate with PyCharm, install PyCharm version PyCharmCE2017.2 or change the respective folder name inside the file $DOCKER_DEV_HOME/scripts/pycharm-docker-compose.yml
+## To integrate with PyCharm
+
+Install PyCharm version PyCharmCE2017.2 or change the respective folder name inside the file $DOCKER_DEV_HOME/scripts/pycharm-docker-compose.yml
  
  - ADD this "$DOCKER_DEV_HOME/scripts/pycharm-docker-compose.yml" to DOCKER_DEV_OVERRIDE_FILES inside $DOCKER_DEV_HOME/scripts/dev-docker-env.sh
 
