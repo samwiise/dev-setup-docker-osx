@@ -1,0 +1,10 @@
+dev-env:
+  image: ubuntu:precise
+  volumes:
+    - "$DOCKER_DEV_HOME:$DOCKER_DEV_HOME"
+  environment:
+    - DOCKER_DEV_HOME=$DOCKER_DEV_HOME
+    - MOUNT_PATHS_DEV=$DOCKER_DEV_HOME
+    - CHROOT_PATH=$DOCKER_DEV_HOME/chroot-os
+  entrypoint: $DOCKER_DEV_HOME/scripts/entrypoint-dev-docker.sh
+  privileged: true

@@ -1,0 +1,6 @@
+dev-env:
+  volumes:
+    - "/Applications/PyCharm CE.app:/Applications/PyCharm CE.app"
+    - "$HOME/Library/Caches/PyCharmCE2017.2:$HOME/Library/Caches/PyCharmCE2017.2"
+  environment:
+    - MOUNT_PATHS_PYCHARM=/Applications/PyCharm CE.app:$HOME/Library/Caches/PyCharmCE2017.2

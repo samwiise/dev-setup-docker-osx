@@ -1,0 +1,39 @@
+#!/bin/bash
+
+pushd . > /dev/null
+SCRIPT_DIR="${BASH_SOURCE[0]}";
+if ([ -h "${SCRIPT_DIR}" ]) then
+  while([ -h "${SCRIPT_DIR}" ]) do cd `dirname "$SCRIPT_DIR"`; SCRIPT_DIR=`readlink "${SCRIPT_DIR}"`; done
+fi
+cd `dirname ${SCRIPT_DIR}` > /dev/null
+export SCRIPT_DIR=`pwd`;
+popd  > /dev/null
+
+
+nargs=$#
+for arg do
+case $arg in
+
+##------- DEBUGGER Fix -------------------
+*pydev/pydevd.py*) 
+		#echo $arg 
+		DEBUGGER=1
+		;;
+"127.0.0.1")
+		if [ "$DEBUGGER" = "1" ]
+		then
+			#echo $arg
+			arg=$(ifconfig en0 | grep inet | grep -v inet6 | cut -d" " -f2)
+		fi
+esac
+
+#######################################
+
+set -- "$@" "$arg"
+done
+
+shift "$nargs"
+
+#export SHARED_CONTAINER_NAME="my_shared_dev_container"
+
+exec $SCRIPT_DIR/chroot-docker.sh python -u "$@" 

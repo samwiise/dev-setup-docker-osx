@@ -1,0 +1,7 @@
+dev-env:
+  environment:
+    - HADOOP_HOME=/usr/local/hadoop
+    - JAVA_HOME=/usr/java/default
+    - HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+    #- HADOOP_CLASSPATH=$$HADOOP_CLASSPATH:/usr/local/hadoop/share/hadoop/tools/lib/*
+    - ADD_TO_PATH_TOOLS=/usr/local/hadoop/bin:/usr/local/spark/bin
